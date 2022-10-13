@@ -29,6 +29,7 @@ declare module "panzoom" {
     minZoom?: number;
     boundsPadding?: number;
     zoomDoubleClickSpeed?: number;
+    boundsDisabledForZoom?: boolean;
     zoomSpeed?: number;
     initialX?: number,
     initialY?: number,
