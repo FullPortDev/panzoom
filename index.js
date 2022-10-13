@@ -6,12 +6,12 @@ var wheel = require('wheel');
 var animate = require('amator');
 var eventify = require('ngraph.events');
 var kinetic = require('./lib/kinetic.js');
-var createTextSelectionInterceptor = require('./lib/createTextSelectionInterceptor.js');
+var createTextSelectionInterceptor = require('./lib/makeTextSelectionInterceptor.js');
 var domTextSelectionInterceptor = createTextSelectionInterceptor();
 var fakeTextSelectorInterceptor = createTextSelectionInterceptor(true);
 var Transform = require('./lib/transform.js');
-var makeSvgController = require('./lib/svgController.js');
-var makeDomController = require('./lib/domController.js');
+var makeSvgController = require('./lib/makeSvgController.js');
+var makeDomController = require('./lib/makeDomController.js');
 
 var defaultZoomSpeed = 1;
 var defaultDoubleTapZoomSpeed = 1.75;
@@ -61,7 +61,6 @@ function createPanZoom(domElement, options) {
   var pinchSpeed = typeof options.pinchSpeed === 'number' ? options.pinchSpeed : 1;
   var bounds = options.bounds;
   var boundsDisabledForZoom = typeof options.boundsDisabledForZoom === 'boolean' ? options.boundsDisabledForZoom : false
-
   var maxZoom = typeof options.maxZoom === 'number' ? options.maxZoom : Number.POSITIVE_INFINITY;
   var minZoom = typeof options.minZoom === 'number' ? options.minZoom : 0;
 
@@ -1100,4 +1099,3 @@ function autoRun() {
 }
 
 autoRun();
-	
