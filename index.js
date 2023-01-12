@@ -147,9 +147,13 @@ function createPanZoom(domElement, options) {
     setTransformOrigin: setTransformOrigin,
 
     getZoomSpeed: getZoomSpeed,
-    setZoomSpeed: setZoomSpeed
+    setZoomSpeed: setZoomSpeed,
+    isPanning: isPanning,
   };
-
+  function isPanning() {
+    return panstartFired
+  }
+  
   eventify(api);
   
   var initialX = typeof options.initialX === 'number' ? options.initialX : transform.x;
